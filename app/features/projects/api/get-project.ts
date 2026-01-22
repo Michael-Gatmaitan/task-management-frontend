@@ -1,4 +1,4 @@
-import { Project } from "@/index";
+import type { Project } from "@/index";
 import axios from "@/lib/axios";
 
 export async function getProject(projectId: string): Promise<Project> {

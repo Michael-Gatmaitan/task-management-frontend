@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
+import type { Task } from "@/index";
 import { getTasks } from "../api/get-tasks";
-import { Task } from "@/index";
 
 export const useTasks = (projectId: string) => {
   return useQuery<Task[]>({

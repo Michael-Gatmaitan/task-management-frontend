@@ -2,25 +2,25 @@
 
 import { type ChangeEvent, type FormEvent, useState } from "react";
 import Button from "@/components/Button";
-import { useCreateProject } from "../projects/hooks/use-create-project";
+import { useCreateTask } from "../tasks/hooks/use-create-task";
 import ErrorMessage from "./ErrorMessage";
 
-const CreateNewProject = () => {
+const CreateNewTask = ({ projectId }: { projectId: string }) => {
   const [showModal, setShowModal] = useState(false);
+
+  const { mutate, isPending, isError, error } = useCreateTask(projectId);
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const { mutate, isPending, isError, error } = useCreateProject();
-
-  const submitCreateProject = (e: FormEvent<HTMLFormElement>) => {
+  const submitCreateTask = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     mutate({ title, description }, {
       onSuccess: () => {
         setTitle("");
         setDescription("");
-        console.log("Create project success on frontend");
+        console.log("Create task success on frontend");
         setShowModal(false);
       }
     })
@@ -29,27 +29,27 @@ const CreateNewProject = () => {
   return (
     <>
       {showModal ? <div className="absolute top-[50%] left-[50%] translate-[-50%] p-4 bg-neutral-200 rounded-md w-full max-w-4/12">
-        <form onSubmit={submitCreateProject} className="grid gap-2">
+        <form onSubmit={submitCreateTask} className="grid gap-2">
           <div className="grid gap-1">
-            <label htmlFor="title" className="font-medium">Project title</label>
+            <label htmlFor="title" className="font-medium">Task title</label>
             <input value={title} className='bg-white text-black disabled:bg-red-400 p-2 rounded-sm' type='text' disabled={isPending} name="title" onChange={(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)} />
           </div>
           <div className="grid gap-1">
-            <label htmlFor="description" className="font-medium">Project description</label>
+            <label htmlFor="description" className="font-medium">Task description</label>
             <input value={description} className='bg-white text-black disabled:bg-red-400 p-2 rounded-sm' type='text' disabled={isPending} name="description" onChange={(e: ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)} />
           </div>
 
           {isError && <ErrorMessage error={error} />}
 
           <div className="mt-2 flex gap-2">
-            <Button className="text-center items-center" type="submit" disabled={isPending}>{isPending ? "Creating..." : "Create project"}</Button>
+            <Button className="text-center items-center" type="submit" disabled={isPending}>{isPending ? "Creating..." : "Create Task"}</Button>
             <Button onClick={() => setShowModal(!showModal)}>Close</Button>
           </div>
         </form>
       </div> : null}
-      <Button type="submit" onClick={() => setShowModal(!showModal)}>Create New Project</Button>
+      <Button type="submit" onClick={() => setShowModal(!showModal)}>Create New Task</Button>
     </>
   )
 }
 
-export default CreateNewProject
+export default CreateNewTask

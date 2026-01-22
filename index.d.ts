@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/correctness/noUnusedVariables: <they are all used> */
 interface TimeStamp {
   created_at: string;
   updated_at: string;

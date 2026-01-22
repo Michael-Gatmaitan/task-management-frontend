@@ -2,10 +2,8 @@
 import { useTasks } from '../tasks/hooks/use-tasks'
 import TasksKanban from './TasksKanban';
 
-const DisplayTasks = ({ projectId }: { projectId: string }) => {
+const DisplayTaskBoards = ({ projectId }: { projectId: string }) => {
   const { data: tasks, isLoading, isError, error } = useTasks(projectId);
-
-  console.log(tasks);
 
   if (isLoading) return <div>Getting tasks</div>
   if (isError) return <div>Error: {JSON.stringify(error)}</div>
@@ -17,9 +15,6 @@ const DisplayTasks = ({ projectId }: { projectId: string }) => {
 
   return (
     <div className="w-full grid grid-cols-3 gap-4 h-12">
-      {/* <div className="h-full w-full bg-red-500"></div>
-      <div className="h-full w-full bg-red-500"></div>
-      <div className="h-full w-full bg-red-500"></div> */}
       <TasksKanban tasks={tasksPending} tasksStatus='pending' />
       <TasksKanban tasks={tasksInProgress} tasksStatus='in_progress' />
       <TasksKanban tasks={tasksCompleted} tasksStatus='completed' />
@@ -27,4 +22,4 @@ const DisplayTasks = ({ projectId }: { projectId: string }) => {
   )
 }
 
-export default DisplayTasks
+export default DisplayTaskBoards
