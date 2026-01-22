@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "app/(auth)/password-reset/[token]/page.js", "components/DropdownLink.js", "hooks/auth.js"  ],
   "exclude": ["node_modules"]
 }
