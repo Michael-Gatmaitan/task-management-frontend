@@ -1,4 +1,10 @@
-const AuthSessionStatus = ({ status, className, ...props }) => (
+import type { ComponentProps } from "react";
+
+interface StatusProp {
+    status: string;
+}
+
+const AuthSessionStatus = ({ status, className, ...props }: StatusProp & ComponentProps<'div'>) => (
     <>
         {status && (
             <div

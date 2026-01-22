@@ -24,13 +24,12 @@ const TaskModal = ({ projectId }: { projectId: string }) => {
   }, [isError, isPending, setShowTaskModal]);
 
   const deleteTask = () => {
-    console.log("delete task");
-
     if (task === null) return;
 
     deleteTaskMutate(task?.id, {
       onSuccess: () => {
         console.log("Task deleted successfully");
+        setShowTaskModal(false);
       }
     })
   }
@@ -109,12 +108,12 @@ const TaskModal = ({ projectId }: { projectId: string }) => {
                 </select>
                 <div className="flex justify-between mt-2">
                   <div className="space-x-2">
-                    <Button type="submit">Edit</Button>
+                    <Button type="submit">Update</Button>
                     <Button onClick={() => setShowTaskModal(false)}>Close</Button>
                   </div>
 
 
-                  <Button className="bg-error-700 hover:bg-error-600" onClick={deleteTask}>Delete task</Button>
+                  <Button type="button" className="bg-error-700 hover:bg-error-600" onClick={deleteTask}>Delete task</Button>
                 </div>
               </div>
             </div>
