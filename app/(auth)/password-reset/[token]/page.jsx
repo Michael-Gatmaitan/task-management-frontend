@@ -1,4 +1,4 @@
-/** biome-ignore-all assist/source/organizeImports: <explanation> */
+/** biome-ignore-all assist/source/organizeImports: <...> */
 'use client'
 
 import InputError from '@/components/InputError'
@@ -6,7 +6,7 @@ import Label from '@/components/Label'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
 import { useAuth } from '@/hooks/auth'
-import { type ChangeEvent, type FormEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import AuthSessionStatus from '@/app/(auth)/AuthSessionStatus'
 
@@ -25,7 +25,7 @@ const PasswordReset = () => {
     });
     const [status, setStatus] = useState(null)
 
-    const submitForm = (event: FormEvent) => {
+    const submitForm = (event) => {
         event.preventDefault()
 
         resetPassword({
@@ -61,7 +61,7 @@ const PasswordReset = () => {
                         value={email}
                         className="block mt-1 w-full"
                         // className="text-black"
-                        onChange={(event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                        onChange={(event) => setEmail(event.target.value)}
                         required
                         autoFocus
                     />
@@ -79,7 +79,7 @@ const PasswordReset = () => {
                         type="password"
                         value={password}
                         className="block mt-1 w-full"
-                        onChange={(event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
+                        onChange={(event) => setPassword(event.target.value)}
                         required
                     />
 
@@ -100,7 +100,7 @@ const PasswordReset = () => {
                         type="password"
                         value={passwordConfirmation}
                         className="block mt-1 w-full"
-                        onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                        onChange={(event) =>
                             setPasswordConfirmation(event.target.value)
                         }
                         required
