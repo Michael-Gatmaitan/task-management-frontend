@@ -15,7 +15,7 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="min-h-screen">
             <Navigation user={user} />
 
-            <main className="px-16 py-14">{children}</main>
+            <main className="max-w-7xl mx-auto pt-6 px-4 sm:px-6 lg:px-8">{children}</main>
         </div>
     )
 }

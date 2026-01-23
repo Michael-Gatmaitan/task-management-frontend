@@ -17,18 +17,18 @@ const ProjectHeader = ({ projectId }: { projectId: string }) => {
 
   return (
     <div className="flex justify-between mb-4">
-      <div className="flex gap-2 items-center justify-center">
+      <div className="flex gap-4 items-center justify-center">
         <Link href="/projects">
           <button type="button" className="p-2 rounded-sm bg-gray-900 hover:bg-gray-800 transition">
             <ChevronLeft />
           </button>
         </Link>
 
-        <div className="space-y-2">
+        <div>
           <div className="text-3xl font-bold">
             {project.title}
           </div>
-          {project.description && <div className="text-xl">{project.description}</div>}
+          {project.description && <div className="opacity-80">{project.description}</div>}
         </div>
 
         <div className="font-bold text-sm">{formattedDate}</div>
