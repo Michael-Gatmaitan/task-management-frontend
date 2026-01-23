@@ -8,7 +8,9 @@ export const useUpdatetask = (projectId: string, taskId: string) => {
   return useMutation({
     mutationFn: (updatedTask: Task) => updateTask(taskId, updatedTask),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['projects', projectId, 'tasks']})
-    }
-  })
-}
+      queryClient.invalidateQueries({
+        queryKey: ["projects", projectId, "tasks"],
+      });
+    },
+  });
+};

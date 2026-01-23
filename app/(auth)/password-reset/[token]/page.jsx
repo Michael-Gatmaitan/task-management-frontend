@@ -59,7 +59,7 @@ const PasswordReset = () => {
                         id="email"
                         type="email"
                         value={email}
-                        className="block mt-1 w-full"
+                        className="block mt-1 w-full p-2 border"
                         // className="text-black"
                         onChange={(event) => setEmail(event.target.value)}
                         required
@@ -78,7 +78,7 @@ const PasswordReset = () => {
                         id="password"
                         type="password"
                         value={password}
-                        className="block mt-1 w-full"
+                        className="block mt-1 w-full p-2 border"
                         onChange={(event) => setPassword(event.target.value)}
                         required
                     />
@@ -99,7 +99,7 @@ const PasswordReset = () => {
                         id="passwordConfirmation"
                         type="password"
                         value={passwordConfirmation}
-                        className="block mt-1 w-full"
+                        className="block mt-1 w-full p-2 border"
                         onChange={(event) =>
                             setPasswordConfirmation(event.target.value)
                         }

@@ -1,5 +1,5 @@
-import CreateNewProject from '@/app/features/components/CreateNewProject';
-import DisplayProjects from '@/app/features/components/DisplayProjects';
+import CreateNewProject from '@/app/features/components/projects/CreateNewProject';
+import DisplayProjects from '@/app/features/components/projects/DisplayProjects';
 
 const page = () => {
   return (

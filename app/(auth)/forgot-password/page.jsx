@@ -45,7 +45,7 @@ const Page = () => {
                         type="email"
                         name="email"
                         value={email}
-                        className="block mt-1 w-full"
+                        className="block mt-1 w-full p-2 border"
                         onChange={event => setEmail(event.target.value)}
                         required
                         autoFocus

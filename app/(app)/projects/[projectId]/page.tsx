@@ -1,14 +1,13 @@
-import DisplayTaskBoards from '@/app/features/components/DisplayTasks';
-import TaskModal from '@/app/features/components/TaskModal';
-import ShowProject from './ShowProject';
-import CreateNewTask from '@/app/features/components/CreateNewTask';
+import DisplayTaskBoards from '@/app/features/components/tasks/DisplayTasks';
+import TaskModal from '@/app/features/components/tasks/TaskModal';
+import ProjectHeader from '../../../features/components/projects/ShowProject';
 
 const page = async ({ params }: { params: Promise<{ projectId: string }> }) => {
   const { projectId } = await params;
 
   return (
     <div>
-      <ShowProject projectId={projectId} />
+      <ProjectHeader projectId={projectId} />
       <DisplayTaskBoards projectId={projectId} />
       <TaskModal projectId={projectId} />
     </div>

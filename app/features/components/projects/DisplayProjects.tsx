@@ -1,7 +1,8 @@
 "use client";
-import Link from 'next/link';
-import { useProjects } from '../projects/hooks/use-projects';
+
 import { ListTodo } from 'lucide-react'
+import Link from 'next/link';
+import { useProjects } from '../../projects/hooks/use-projects';
 
 const DisplayProjects = () => {
   const { data: projects, isLoading, isError, error } = useProjects();

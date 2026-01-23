@@ -3,11 +3,11 @@
 import type { Task } from '@/index';
 import Button from '@/components/Button';
 import { type FormEvent, useEffect } from 'react';
-import { useUpdatetask } from '../tasks/hooks/use-update-task';
+import { useUpdatetask } from '../../tasks/hooks/use-update-task';
 import { useTaskStore } from '@/app/stores/taskStore'
 import { LoaderCircle } from 'lucide-react';
-import ErrorMessage from './ErrorMessage';
-import { useDeleteTask } from '../tasks/hooks/use-delete-tasks';
+import ErrorMessage from '../ErrorMessage';
+import { useDeleteTask } from '../../tasks/hooks/use-delete-tasks';
 
 const TaskModal = ({ projectId }: { projectId: string }) => {
 

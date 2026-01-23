@@ -1,5 +1,5 @@
 "use client";
-import { useTasks } from '../tasks/hooks/use-tasks'
+import { useTasks } from '../../tasks/hooks/use-tasks'
 import TasksKanban from './TasksKanban';
 
 const DisplayTaskBoards = ({ projectId }: { projectId: string }) => {

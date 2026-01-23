@@ -1,12 +1,12 @@
 "use client";
 // biome-ignore assist/source/organizeImports: <...>
-import CreateNewTask from '@/app/features/components/CreateNewTask';
+import CreateNewTask from '@/app/features/components/tasks/CreateNewTask';
 import { useProject } from '@/app/features/projects/hooks/use-project';
 import { formatDate } from '@/lib/date_formatter';
 import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 
-const ShowProject = ({ projectId }: { projectId: string }) => {
+const ProjectHeader = ({ projectId }: { projectId: string }) => {
   const { data: project, isLoading, isError, error } = useProject(projectId);
 
   if (isLoading) return <div>Project loading...</div>
@@ -39,4 +39,4 @@ const ShowProject = ({ projectId }: { projectId: string }) => {
   )
 }
 
-export default ShowProject
+export default ProjectHeader
